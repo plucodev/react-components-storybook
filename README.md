@@ -1,13 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## To run the project
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run storybook`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+Local: http://localhost:6006/ │
+On your network: http://192.168.1.78:6006/
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
