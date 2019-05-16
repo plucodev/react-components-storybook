@@ -28,7 +28,11 @@ class GithubCard extends React.Component {
         <div className="card-header border-success bg-transparent d-inline-flex p-2">
           <div className="col-3 ">
             {data && (
-              <img src={data.avatar_url} alt="..." className="img-fluid" />
+              <img
+                src={data.avatar_url}
+                alt="..."
+                className="img-fluid rounded"
+              />
             )}
           </div>
           <div className="col-9 d-flex flex-column">
@@ -40,9 +44,61 @@ class GithubCard extends React.Component {
             )}
           </div>
         </div>
-        <div className="card-body border-success">card body</div>
+        <div className="card-body border-success d-inline-flex">
+          <div className="col-4 border-success">
+            {data && (
+              <a
+                href={
+                  "https://github.com/" +
+                  this.props.gitUsername +
+                  "?tab=repositories"
+                }
+                target="_top"
+              >
+                {data ? (
+                  <strong>{data.public_repos}</strong>
+                ) : (
+                  <strong>0</strong>
+                )}
+                Repos
+              </a>
+            )}
+          </div>
+          <div className="col-4">
+            {data && (
+              <a
+                href={"https://gist.github.com/" + this.props.gitUsername}
+                target="_top"
+              >
+                {data ? (
+                  <strong>{data.public_gists}</strong>
+                ) : (
+                  <strong>0</strong>
+                )}
+                Gists
+              </a>
+            )}
+          </div>
+          <div className="col-4">
+            {data && (
+              <a
+                href={
+                  "https://github.com/" + this.props.gitUsername + "/followers"
+                }
+                target="_top"
+              >
+                {data ? <strong>{data.followers}</strong> : <strong>0</strong>}
+                Followers
+              </a>
+            )}
+          </div>
+        </div>
         <div className="card-footer border-success bg-transparent">
-          card footer
+          {data && data.bio && (
+            <div className="footer">
+              <h6>{data.bio}</h6>
+            </div>
+          )}
         </div>
       </div>
     );
