@@ -5,6 +5,16 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import { Button, Welcome } from "@storybook/react/demo";
+import GithubCard from "../src/githubCard/GithubCard.js";
+
+import {
+  text,
+  boolean,
+  number,
+  array,
+  object,
+  select
+} from "@storybook/addon-knobs";
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
@@ -21,3 +31,9 @@ storiesOf("Button", module)
       </span>
     </Button>
   ));
+storiesOf("GithubCard", module).add("default configuration", () => (
+  <GithubCard
+    email={text("email", "myemail@domain.com")}
+    gitUsername={text("Github Username", "plucodev")}
+  />
+));
