@@ -25,13 +25,13 @@ class GithubCard extends React.Component {
     // let {username} = this.props.gitUsername;
     return (
       <div className="card border-success">
-        <div className="card-header border-success">
-          <div className="col">
+        <div className="card-header border-success bg-transparent d-inline-flex p-2">
+          <div className="col-3 ">
             {data && (
-              <img src={data.avatar_url} alt="..." className="img-thumbnail" />
+              <img src={data.avatar_url} alt="..." className="img-fluid" />
             )}
           </div>
-          <div className="col">
+          <div className="col-9 d-flex flex-column">
             {data ? <strong>{data.name}</strong> : "loading"}
             {data ? (
               <span>{"@" + this.props.gitUsername}</span>
@@ -41,7 +41,9 @@ class GithubCard extends React.Component {
           </div>
         </div>
         <div className="card-body border-success">card body</div>
-        <div className="card-footer border-success">card footer</div>
+        <div className="card-footer border-success bg-transparent">
+          card footer
+        </div>
       </div>
     );
   }
