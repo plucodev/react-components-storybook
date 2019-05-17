@@ -115,7 +115,7 @@ class GithubCard extends React.Component {
         <div className="card-footer border-muted bg-transparent">
           {data && data.bio && (
             <div className="footer">
-              <h6>{data.bio}</h6>
+              <h6 class="mb-0">{data.bio}</h6>
             </div>
           )}
         </div>
