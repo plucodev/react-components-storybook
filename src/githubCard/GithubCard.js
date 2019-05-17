@@ -24,8 +24,8 @@ class GithubCard extends React.Component {
     let { data } = this.state;
     // let {username} = this.props.gitUsername;
     return (
-      <div className="card border-success">
-        <div className="card-header border-success bg-transparent d-inline-flex p-2">
+      <div className="card border-muted">
+        <div className="card-header border-muted bg-transparent d-inline-flex p-2">
           <div className="col-3 ">
             {data && (
               <img
@@ -44,10 +44,11 @@ class GithubCard extends React.Component {
             )}
           </div>
         </div>
-        <div className="card-body border-success d-inline-flex">
-          <div className="col-4 border-success">
+        <div className="card-body border-muted d-inline-flex p-0">
+          <div className="col-4 border-right border-muted d-flex flex-column py-1 text-dark">
             {data && (
               <a
+                className="text-dark"
                 href={
                   "https://github.com/" +
                   this.props.gitUsername +
@@ -56,44 +57,62 @@ class GithubCard extends React.Component {
                 target="_top"
               >
                 {data ? (
-                  <strong>{data.public_repos}</strong>
+                  <span className="mr-1 ">
+                    <strong>{data.public_repos}</strong>
+                  </span>
                 ) : (
-                  <strong>0</strong>
+                  <span>
+                    <strong>0</strong>
+                  </span>
                 )}
                 Repos
               </a>
             )}
           </div>
-          <div className="col-4">
+          <div className="col-4 border-right border-muted d-flex flex-column py-1 text-dark">
             {data && (
               <a
+                className="text-dark"
                 href={"https://gist.github.com/" + this.props.gitUsername}
                 target="_top"
               >
                 {data ? (
-                  <strong>{data.public_gists}</strong>
+                  <span className="mr-1">
+                    <strong>{data.public_gists}</strong>
+                  </span>
                 ) : (
-                  <strong>0</strong>
+                  <span>
+                    <strong>0</strong>
+                  </span>
                 )}
                 Gists
               </a>
             )}
           </div>
-          <div className="col-4">
+          <div className="col-4 d-flex flex-column py-1 text-dark">
             {data && (
               <a
+                className="text-dark"
                 href={
                   "https://github.com/" + this.props.gitUsername + "/followers"
                 }
                 target="_top"
               >
-                {data ? <strong>{data.followers}</strong> : <strong>0</strong>}
+                {data ? (
+                  <span className="mr-1">
+                    <strong>{data.followers}</strong>
+                  </span>
+                ) : (
+                  <span>
+                    <strong>0</strong>
+                  </span>
+                )}
                 Followers
               </a>
             )}
           </div>
         </div>
-        <div className="card-footer border-success bg-transparent">
+        <div className="card-footer border-muted bg-transparent">
           {data && data.bio && (
             <div className="footer">
               <h6>{data.bio}</h6>
